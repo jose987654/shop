@@ -1,0 +1,15 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#home .home {
+  background: url(./assets/images/fur-bg.png);
+}
+
+.bg{
+  background: url(../public/assets/images/fur-bg.png);
+}
