@@ -16,8 +16,8 @@ function App() {
           <Route path=":id" element={<ProductDetail />} />
           <Route path="/Contact" element={<Contact />} />
           <Route path="/About" element={<About />} />
-          <Route path="/siteXml" element={<SiteXML/>} />
-          <Route path="/site" element={<About/>} />
+          <Route path="siteXml" element={<SiteXML/>} />
+          <Route path="site" element={<About/>} />
         </Route>
       </Routes>
     </main>
