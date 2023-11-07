@@ -1,26 +1,45 @@
 import React from 'react';
+import { Link, useRoutes } from 'react-router-dom';
+import Home from '../pages/Home';
+import ProductDetail from '../pages/ProductDetail';
+import Contact from '../pages/Contact';
+import About from '../pages/About';
 
-const xmlContent = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+const Sitemap = () => {
+  const routes = useRoutes([
+    { path: "/", element: <Home /> },
+    { path: "/:id", element: <ProductDetail /> },
+    { path: "/Contact", element: <Contact /> },
+    { path: "/About", element: <About /> },   
+    { path: "/site", element: <About /> },
+  ]);
 
+  const baseUrl = 'https://shop-weld-five.vercel.app'; // Replace with your website URL
 
-<url>
-  <loc>https://shop-weld-five.vercel.app/</loc>
-  <lastmod>2023-11-07T09:14:02+00:00</lastmod>
-</url>
-</urlset>`;
+//   const urls = routes?.map((route) => {
+//     const path = route.path.startsWith('/') ? route.path.slice(1) : route.path;
+//     return `${baseUrl}/${path}`;
+//   });
 
-function App() {
+  const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
+    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+    <loc>https://shop-weld-five.vercel.app/</loc>
+    <lastmod>2023-11-07T09:14:02+00:00</lastmod>
+    </url>
+    </urlset>`;
+
+  // Set the Content-Type header to indicate that the content is XML
+  const xmlBlob = new Blob([sitemapXml], { type: 'application/xml' });
+
   return (
-    <div>      
-      <pre>{xmlContent}</pre>
-    </div>
+    <a
+      href={URL.createObjectURL(xmlBlob)}
+      download="sitemap.xml"
+    >
+      Download Sitemap
+    </a>
   );
-}
+};
 
-export default App;
+export default Sitemap;

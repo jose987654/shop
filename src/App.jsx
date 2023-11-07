@@ -6,6 +6,7 @@ import ProductDetail from "./pages/ProductDetail";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
 import SiteXML from "./components/site";
+// import Sitemap from "./siteMap";
 function App() {
   return (
     <main className="App">
