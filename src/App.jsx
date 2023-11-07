@@ -11,14 +11,12 @@ function App() {
     <main className="App">
       <Routes>
         {/* Routes for the application */}
-        <Route path="/">
-          <Route index element={<Home />} />
-          <Route path=":id" element={<ProductDetail />} />
-          <Route path="/Contact" element={<Contact />} />
-          <Route path="/About" element={<About />} />
-          <Route path="siteXml" element={<SiteXML/>} />
-          <Route path="site" element={<About/>} />
-        </Route>
+        <Route path="/" element={<Home />} />
+        <Route path="/:id" element={<ProductDetail />} />
+        <Route path="/Contact" element={<Contact />} />
+        <Route path="/About" element={<About />} />
+        <Route path="/siteXml" element={<SiteXML />} />
+        <Route path="/site" element={<About />} />
       </Routes>
     </main>
   );
