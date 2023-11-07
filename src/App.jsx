@@ -5,7 +5,7 @@ import Home from "./pages/Home";
 import ProductDetail from "./pages/ProductDetail";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
-
+import SiteXML from "./components/site";
 function App() {
   return (
     <main className="App">
@@ -16,6 +16,7 @@ function App() {
           <Route path=":id" element={<ProductDetail />} />
           <Route path="/Contact" element={<Contact />} />
           <Route path="/About" element={<About />} />
+          <Route path="/siteXml" element={<SiteXML/>} />
         </Route>
       </Routes>
     </main>
