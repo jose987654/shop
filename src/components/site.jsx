@@ -1,37 +1,26 @@
-// SiteXML.js
-import React, { useEffect, useState } from "react";
+import React from 'react';
 
-function SiteXML() {
-  const [xmlContent, setXmlContent] = useState(null);
+const xmlContent = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
-  useEffect(() => {
-    // Fetch the XML file
-    fetch('../sitemap.xml') // Replace with the actual path to your XML file
-      .then((response) => {
-        if (response.ok) {
-          return response.text();
-        } else {
-          throw new Error('Failed to fetch XML file');
-        }
-      })
-      .then((xmlText) => {
-        setXmlContent(xmlText);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, []);
 
+<url>
+  <loc>https://shop-weld-five.vercel.app/</loc>
+  <lastmod>2023-11-07T09:14:02+00:00</lastmod>
+</url>
+</urlset>`;
+
+function App() {
   return (
-    <div>
-      <h2>Site XML Content</h2>
-      {xmlContent ? (
-        <pre>{xmlContent}</pre>
-      ) : (
-        <p>Loading XML content...</p>
-      )}
+    <div>      
+      <pre>{xmlContent}</pre>
     </div>
   );
 }
 
-export default SiteXML;
+export default App;
